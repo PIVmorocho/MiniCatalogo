@@ -1,6 +1,24 @@
-﻿namespace MiniCatalogo.Views.Producto
-{
-    public class Detail
-    {
-    }
+﻿@model MiniCatalogo.Models.Producto
+
+@{
+    ViewData["Title"] = "Detalle del Producto";
 }
+@* pantalla de riverfex *@
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <img src="@Model.UrlImagen" class="card-img-top" alt="@Model.Nombre" style="height:300px; object-fit:cover;" />
+                <div class="card-body">
+                    <span class="badge bg-primary mb-2">@Model.Categoria</span>
+                    <h3 class="card-title">@Model.Nombre</h3>
+                    <p class="card-text text-muted">@Model.Descripcion</p>
+                    <h4 class="text-success fw-bold">$@Model.Precio.ToString("F2")</h4>
+                </div>
+                <div class="card-footer">
+                    <a asp-action="Index" class="btn btn-outline-secondary w-100">← Volver al Catálogo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
